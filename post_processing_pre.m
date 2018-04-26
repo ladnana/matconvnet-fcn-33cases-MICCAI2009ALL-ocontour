@@ -2,9 +2,9 @@ clear;
 clc;
 close all;
 
-OutputDir = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009-123+132-i_50-1_2lr_4scaleLoss+2upshape+2.0-1.5-1_3dshape+2mshape-HVmirror/processed_result/';
-Outputpath = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009-123+132-i_50-1_2lr_4scaleLoss+2upshape+2.0-1.5-1_3dshape+2mshape-HVmirror';
-file_path =  'H:/nana/data/fcn4s-500-33cases_MICCAI2009-123+132-i_50-1_2lr_4scaleLoss+2upshape+2.0-1.5-1_3dshape+2mshape-HVmirror/segamentation_result/';% 图像文件夹路径
+OutputDir = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009_adam_60-1_1lr_3phases_128_4loss-o/processed_result/';
+Outputpath = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009_adam_60-1_1lr_3phases_128_4loss-o';
+file_path =  'H:/nana/data/fcn4s-500-33cases_MICCAI2009_adam_60-1_1lr_3phases_128_4loss-o/segamentation_result_o/';% 图像文件夹路径
 img_path_list = dir(strcat(file_path,'*.png'));%获取该文件夹中所有png格式的图像
 img_num = length(img_path_list);%获取图像总数量
 

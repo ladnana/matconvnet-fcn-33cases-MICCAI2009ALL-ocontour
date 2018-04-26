@@ -9,13 +9,13 @@ opts = vl_argparse(opts, varargin) ;
 
 
 % Source images and classes
-imdb.paths.image = esc(fullfile(opts.dataDir, 'CropDCMImages-i-123+132+up-scaledown-middleshape+HVmirror-clahe', '%s.dcm')) ;
-imdb.paths.image2 = esc(fullfile(opts.dataDir, 'CropDCMImages-i-123+132+up-scaledown-middleshape+HVmirror-clahe', '%s.mat')) ;
+imdb.paths.image = esc(fullfile(opts.dataDir, 'CropDCMImages', '%s.dcm')) ;
+imdb.paths.image2 = esc(fullfile(opts.dataDir, 'CropDCMImages', '%s.mat')) ;
 % imdb.paths.image = esc(fullfile(opts.dataDir, 'DCMImages', '%s.dcm')) ;
 imdb.sets.id = uint8([1 2 3]) ;
 imdb.sets.name = {'train', 'val', 'test'} ;
 imdb.classes.id = uint8(1) ;
-imdb.classes.name = {'icontour'} ;
+imdb.classes.name = {'ocontour'} ;
 imdb.classes.images = cell(1) ;
 imdb.images.id = [] ;
 imdb.images.name = {} ;
@@ -28,7 +28,7 @@ if opts.includeTest, [imdb, index] = addImageSet(opts, imdb, index, 'test', 3) ;
 % Source segmentations
 if opts.includeSegmentation
   n = numel(imdb.images.id) ;
-  imdb.paths.classSegmentation = esc(fullfile(opts.dataDir, 'CropSegmentationClass-i+123+132+up-scaledown-middleshape+HVmirror', '%s.png')) ;
+  imdb.paths.classSegmentation = esc(fullfile(opts.dataDir, 'CropSegmentationClass-o', '%s.png')) ;
   imdb.images.segmentation = false(1, n) ;
   [imdb, index] = addSegmentationSet(opts, imdb, index, 'train', 1) ;
   [imdb, index] = addSegmentationSet(opts, imdb, index, 'val', 2) ;

@@ -5,7 +5,7 @@ run ../matconvnet/matlab/vl_setupnn ;
 addpath ../matconvnet/examples ;
 
 % experiment and data paths
-opts.expDir = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009-123+132-i_50-1_2lr_4scaleLoss+2upshape+2.0-1.5-1_3dshape+2mshape-HVmirror' ;
+opts.expDir = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009_adam_60-1_1lr_3phases_128_4loss-o' ;
 opts.dataDir = 'H:/nana/data/33cases_MICCAI2009' ;
 opts.modelType = 'fcn4s' ;
 opts.sourceModelPath = 'H:/nana/data/models/imagenet-vgg-verydeep-16.mat' ;
@@ -24,14 +24,14 @@ opts.numFetchThreads = 1 ; % not used yet
 opts.train.gpus = 1 ;%edited by mR
 [opts, varargin] = vl_argparse(opts, varargin) ;
 
-trainOpts.batchSize = 50 ;%每个batch的样本数
+trainOpts.batchSize = 60 ;%每个batch的样本数
 trainOpts.numSubBatches = 1 ; %每个batch分成多少个subbatch
 trainOpts.continue = true ;
 trainOpts.gpus = 1 ;
 trainOpts.prefetch = true ;
 trainOpts.expDir = opts.expDir ;
 trainOpts.numEpochs = 50;
-trainOpts.learningRate = 0.0002 * ones(1,trainOpts.numEpochs);%edited by mR 原始为0.0001
+trainOpts.learningRate = 0.0001 * ones(1,trainOpts.numEpochs);%edited by mR 原始为0.0001
 % trainOpts.learningRate(trainOpts.numEpochs/2+1:trainOpts.numEpochs) = 0.0001 ;%edited by mR 原始为0.0001
 % trainOpts.learningRate(trainOpts.numEpochs) = trainOpts.learningRate(1) * 0.01;
 % for i = 2 :trainOpts.numEpochs - 1

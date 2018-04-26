@@ -2,9 +2,9 @@ clear;
 clc;
 close all;
 
-OutputDir = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009-123+132-i_50-1_2lr_4scaleLoss+2upshape+2.0-1.5-1_3dshape+2mshape-HVmirror/filling_result/';
-Outputpath = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009-123+132-i_50-1_2lr_4scaleLoss+2upshape+2.0-1.5-1_3dshape+2mshape-HVmirror';
-file_path =  'H:/nana/data/fcn4s-500-33cases_MICCAI2009-123+132-i_50-1_2lr_4scaleLoss+2upshape+2.0-1.5-1_3dshape+2mshape-HVmirror/processed_result/'
+OutputDir = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009_adam_60-1_1lr_3phases_128_4loss-o/filling_result/';
+Outputpath = 'H:/nana/data/fcn4s-500-33cases_MICCAI2009_adam_60-1_1lr_3phases_128_4loss-o';
+file_path =  'H:/nana/data/fcn4s-500-33cases_MICCAI2009_adam_60-1_1lr_3phases_128_4loss-o/processed_result/'
 img_path_list = dir(strcat(file_path,'*.png'));%获取该文件夹中所有png格式的图像  
 img_num = length(img_path_list);%获取图像总数量   
 
@@ -21,9 +21,9 @@ end
 %      b = padarray(I, [64 64]); 
     idx = strfind(image_name,'_');
     num = image_name(idx-4:idx-1);
-    if str2num(num) == 4201 || str2num(num) == 3401 || str2num(num) == 1901 || str2num(num) == 4001
-        I = rot90(I,1);
-    end
+%     if str2num(num) == 4201 || str2num(num) == 3401 || str2num(num) == 1901 || str2num(num) == 4001
+%         I = rot90(I,1);
+%     end
 %     if str2num(num) == 1901
 %         b = uint8(zeros(256));
 %         b(80:80+127,64:64+127) = I;

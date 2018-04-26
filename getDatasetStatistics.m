@@ -16,11 +16,12 @@ stats.classCounts = classCounts ;
 for t=1:numel(train)
   fprintf('%s: computing RGB stats for training image %d\n', mfilename, t) ;
 %    if t < 403 ||(t > 657 && t < 925) || (t > 1047 && t < 1201)
-%       rgb = load(sprintf(imdb.paths.image2, imdb.images.name{train(t)}));
-%       rgb = rgb.picture;
-%   else
+   if t < 757
+      rgb = load(sprintf(imdb.paths.image2, imdb.images.name{train(t)}));
+      rgb = rgb.picture;
+  else
       rgb = dicomread(sprintf(imdb.paths.image, imdb.images.name{train(t)})) ;
-%   end
+  end
   rgb = cat(3, rgb, rgb, rgb) ;
   rgb = single(rgb) ;
   z = reshape(permute(rgb,[3 1 2 4]),3,[]) ;
